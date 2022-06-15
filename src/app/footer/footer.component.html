@@ -1,0 +1,40 @@
+<mat-toolbar class="footer" color="primary">
+  <mat-nav-list class="footer-nav-list">
+    <a mat-list-item class="footer-logo" routerLink="/">
+      <i class="material-icons"> home </i>
+    </a>
+    <a class="footer-search-box">
+      <i href="##" class="material-icons icon"> search </i>
+      <input
+        id="bt"
+        matInput
+        type="text"
+        #mySelect
+        placeholder="Ex. Naruto"
+        [value]="value"
+        (change)="searchanime(mySelect.value)"
+      />
+    </a>
+    <a mat-list-item routerLink="/login">
+      <i class="material-icons"> login </i>
+    </a>
+    <a mat-list-item (click)="getAnimeType('popular')">
+      <i class="material-icons"> favorite </i>
+    </a>
+    <a mat-list-item (click)="getAnimeType('highrating')">
+      <i class="material-icons"> star </i>
+    </a>
+    <a mat-list-item (click)="getAnimeType('upcoming')">
+      <i class="material-icons"> bolt </i>
+    </a>
+    <a mat-list-item class="theme2-bt">
+      <input
+        type="checkbox"
+        id="toggle2"
+        [(ngModel)]="checked"
+        (change)="feedback()"
+      />
+      <label for="toggle2" class="button2"></label>
+    </a>
+  </mat-nav-list>
+</mat-toolbar>

@@ -1,0 +1,113 @@
+.footer {
+    display: none;
+}
+
+@media screen and (max-width: 992px) {
+    .footer {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        color: #fafafa;
+        font-family: "IBM Plex Sans";
+        width: 100vw;
+        height: 5rem;
+        justify-content: space-between;
+    }
+
+    .footer-nav-list a {
+        color: white;
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+    }
+
+    .footer-nav-list {
+        display: flex;
+        align-items: baseline;
+        width: 100%;
+        margin-left: -15px;
+    }
+
+    .footer-description {
+        display: none;
+    }
+}
+
+.footer-search-box {
+    height: 40px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 16px;
+    position: relative;
+    height: inherit;
+    display: block;
+    height: 48px;
+    -webkit-tap-highlight-color: transparent;
+    width: 100%;
+    padding: 0;
+}
+
+.footer-search-box:hover > input {
+    width: 140px;
+    padding: 0 10px;
+    font-size: 1.8rem;
+}
+
+.icon:hover {
+    transform: rotate(360deg) scale(0.8);
+}
+.footer-search-box input {
+    width: 0;
+    border: none;
+    outline: none;
+    padding: 0;
+    background: none;
+    font-size: 1.2rem;
+    transition: 0.5s ease;
+    color: #fff;
+}
+
+.footer-search-box input::placeholder {
+    color: rgb(175, 173, 173);
+}
+
+#toggle2 {
+    display: none;
+}
+
+.button2 {
+    display: inline-block;
+    height: 25px;
+    background-color: #fff;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.theme2-bt .button2::after {
+    content: url("/assets/images/sun-line.svg");
+    width: 30px;
+    height: 30px;
+    background-color: #e03c3c;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: -3px;
+    left: 0;
+    margin-right: 10px;
+    display: grid;
+    place-content: center;
+    line-height: 0;
+    transition: background-color 1s, transform 1s ease-in;
+}
+
+.theme2-bt #toggle2:checked + .button2::after {
+    content: url("/assets/images/moon-line.svg");
+    background-color: #1f257f;
+    transform: rotate(360deg);
+}
