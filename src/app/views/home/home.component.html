@@ -1,0 +1,10 @@
+<mat-card *ngIf="popular && highrating && upcoming">
+  <app-banner id="popular" titulo="Popular now" [list]="popular"></app-banner>
+  <app-animes id="popular" titulo="Popular now" [list]="popular"></app-animes>
+  <app-animes
+    id="highrating"
+    titulo="Highest rated animes"
+    [list]="highrating"
+  ></app-animes>
+  <app-animes id="upcoming" titulo="Coming soon" [list]="upcoming"></app-animes>
+</mat-card>
