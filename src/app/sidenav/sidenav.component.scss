@@ -1,0 +1,99 @@
+.container {
+}
+.toolbar {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidenav {
+    width: 200px;
+    display: flex;
+}
+
+.sidenav a {
+    color: white;
+}
+
+.sidenav .toolbar i {
+    padding: 10px;
+}
+
+.sidenav .toolbar .logo {
+    background-color: rgb(135, 135, 244);
+    font-size: 1.2rem;
+}
+
+.content {
+    padding: 25px;
+    height: calc(100vh - 50px);
+}
+
+@media screen and (max-width: 992px) {
+    .sidenav {
+        display: none;
+    }
+}
+.search-box {
+    height: 40px;
+    border-radius: 40px;
+    padding: 0 10px;
+}
+input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 10;
+    background: none;
+    font-size: 1.2rem;
+    transition: 0.5s ease;
+    color: #fff;
+}
+input::placeholder {
+    color: rgb(175, 173, 173);
+}
+
+#toggle {
+    display: none;
+}
+.button {
+    display: inline-block;
+    width: 90px;
+    height: 35px;
+    background-color: #fff;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+}
+
+.button::after {
+    content: url("/assets/images/sun-line.svg");
+    width: 40px;
+    height: 40px;
+    background-color: #e03c3c;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: -5px;
+    left: 0;
+    display: grid;
+    place-content: center;
+    line-height: 0;
+    transition: background-color 1s, transform 1s ease-in;
+}
+label .button::after {
+    background-color: #e03c3c;
+}
+#toggle:checked + .button::after {
+    content: url("/assets/images/moon-line.svg");
+    background-color: #1f257f;
+    transform: translateX(50px) rotate(360deg);
+}
+
+.theme-bt {
+    position: absolute;
+    bottom: 5%;
+    left: 25%;
+}

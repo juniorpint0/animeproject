@@ -1,0 +1,64 @@
+<meta name="viewport" content="width=device-width" />
+<mat-sidenav-container class="container mat-app-background">
+  <mat-sidenav
+    color="primary"
+    class="sidenav"
+    mode="side"
+    opened
+    fixedInViewport="true"
+  >
+    <mat-toolbar class="toolbar" color="primary">
+      <mat-nav-list class="nav-list">
+        <a mat-list-item class="logo mat-elevation-z3" routerLink="/">
+          <i class="material-icons"> home </i>
+
+          <a>Anime Project</a>
+        </a>
+        <a mat-list-item class="search-box">
+          <i class="material-icons"> search </i>
+          <input
+            matInput
+            #mySelect
+            placeholder="Ex. Naruto"
+            [value]=""
+            (change)="searchanime(mySelect.value)"
+          />
+        </a>
+
+        <a mat-list-item routerLink="/login">
+          <i class="material-icons icon"> login </i>
+          Sing In
+        </a>
+        <a mat-list-item (click)="getAnimeType('popular')">
+          <i class="material-icons"> favorite </i>
+          Popular
+        </a>
+        <a mat-list-item (click)="getAnimeType('highrating')">
+          <i class="material-icons"> star </i>
+          High Rating
+        </a>
+        <a mat-list-item (click)="getAnimeType('upcoming')">
+          <i class="material-icons"> bolt </i>
+          Up Comming
+        </a>
+        <div class="theme-bt">
+          <input
+            type="checkbox"
+            id="toggle"
+            [(ngModel)]="checked"
+            [formControl]="toggleControl"
+          />
+          <label for="toggle" class="button"></label>
+        </div>
+      </mat-nav-list>
+    </mat-toolbar>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+    <app-footer
+      [checked]="checked"
+      (feedbackclick)="getInformation()"
+    ></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
