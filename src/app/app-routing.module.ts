@@ -4,8 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './views/home/home.component';
 import { DetailsComponent } from './views/details/details.component';
 import { AnimesComponent } from './views/animes/animes.component';
-import { CustomGridComponent } from './shared/custom-grid/custom-grid.component';
-import { AnimeTypeComponent } from './views/animes/anime-type/anime-type.component';
+import { AnimeTypeComponent } from './views/anime-type/anime-type.component';
 import { LoginComponent } from './views/login/login.component';
 
 const routes: Routes = [
@@ -20,10 +19,6 @@ const routes: Routes = [
   {
     path: 'details/edit/:id',
     component: DetailsComponent,
-  },
-  {
-    path: 'anime/:value',
-    component: CustomGridComponent,
   },
   {
     path: 'login',
