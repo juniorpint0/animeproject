@@ -6,11 +6,6 @@
 .banner img {
     width: 100%;
 }
-
-.img-large {
-    display: none;
-}
-
 .container {
     display: grid;
     grid-template-columns: 1fr 4fr 2fr;
@@ -25,12 +20,6 @@
         justify-content: center;
         text-align: justify;
         z-index: 11;
-    }
-    .img-original {
-        display: none;
-    }
-    .img-large {
-        display: block;
     }
 }
 @media screen and (max-width: 600px) {
