@@ -1,0 +1,33 @@
+<div class="container">
+  <form class="form">
+    <div class="box">
+      <span class="logo">Anime Project</span>
+      <input
+        #username="ngModel"
+        name="username"
+        [(ngModel)]="form.username"
+        type="email"
+        title="username"
+        placeholder="Enter your e-mail address"
+        class="input"
+        (change)="validationEmail()"
+      />
+      <div class="msgerr">{{ msgemail }}</div>
+      <input
+        [(ngModel)]="form.password"
+        name="password"
+        type="password"
+        title="password"
+        placeholder="Enter your password"
+        class="input"
+        (change)="validationPassword()"
+      />
+      <div class="msgerr">{{ msgpass }}</div>
+      <div class="forgot">
+        <span class="link">Forgot your password?</span>
+      </div>
+      <button type="submit" class="button" (click)="onSubmit()">Sign in</button>
+      <button type="button" class="home" routerLink="/">Back to home</button>
+    </div>
+  </form>
+</div>

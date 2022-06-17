@@ -1,0 +1,138 @@
+.container {
+    height: 100%;
+    min-height: 100vh;
+    background: linear-gradient(45deg, rgba(35, 35, 46, 1) 0%, rgba(102, 73, 184, 1) 47%, rgba(0, 128, 128, 1) 100%);
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 0 5rem 0.1rem #000;
+}
+.logo {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 20px;
+    text-align: center;
+    color: env(--dark-text-secondary);
+    font-size: 2rem;
+    letter-spacing: 0.3ch;
+    width: 30vw;
+    color: #fff;
+}
+@media screen and (max-width: 1100px) {
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+.link {
+    text-decoration: none;
+    color: white;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.size {
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    min-width: 200px;
+    max-width: 400px;
+    text-align: center;
+    outline: none;
+    width: 30vw;
+    transition: all 200ms ease;
+}
+.forgot {
+    text-align: center;
+    width: 30vw;
+    min-width: 300px;
+    max-width: 400px;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    cursor: pointer;
+    & .link {
+        font-size: 0.8rem;
+        width: 100%;
+    }
+}
+.input {
+    composes: size;
+    display: flex;
+    align-self: center;
+    background: rgba(0, 0, 0, 0.4);
+    height: 2rem;
+    border: 0.5px solid #bbbbbb;
+    padding: 10px;
+    margin: 0.5rem;
+    &:focus {
+        transition: all 300ms ease;
+        border: 1px solid env(--dark-hover-bg);
+    }
+    padding: 10px;
+    max-width: 400px;
+    text-align: center;
+    width: 30vw;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    min-width: 200px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+.button {
+    composes: size;
+    max-width: 400px;
+    text-align: center;
+    width: 30vw;
+    border-radius: 10px;
+    background: #303030;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    transition: all 200ms ease;
+    &:active {
+        filter: contrast(150%);
+    }
+    color: #fff;
+    font-size: 1rem;
+    min-width: 200px;
+    outline: none;
+}
+.home {
+    composes: button;
+    background: transparent;
+    color: white;
+    &:hover {
+        text-decoration: underline;
+    }
+    background: transparent;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 20px;
+    transition: all 0.2s ease;
+    max-width: 400px;
+    text-align: center;
+    width: 30vw;
+    font-size: 1rem;
+    min-width: 200px;
+    outline: none;
+    border-radius: 10px;
+}
+.msgerr {
+    color: rgb(172, 169, 169);
+}
