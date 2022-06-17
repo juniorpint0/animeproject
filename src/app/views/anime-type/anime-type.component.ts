@@ -23,7 +23,6 @@ export class AnimeTypeComponent implements OnInit {
   ) {
     route.params.subscribe((val) => {
       this.snapSearch = this.route.snapshot.params['value'];
-      console.log(val);
       if (this.snapSearch == 'popular') {
         this.api.getPopular().subscribe((response: any) => {
           this.hasData = response.data;
@@ -43,9 +42,7 @@ export class AnimeTypeComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    console.log('Entrei');
-  }
+  ngOnInit(): void {}
 
   goToDetalhesByService(anime: Anime) {
     this.dataService.setAnime(anime);
