@@ -21,8 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AnimesComponent } from './views/animes/animes.component';
 import { DetailsComponent } from './views/details/details.component';
 
-import { CustomGridComponent } from './shared/custom-grid/custom-grid.component';
-import { AnimeTypeComponent } from './views/animes/anime-type/anime-type.component';
+
+import { AnimeTypeComponent } from './views/anime-type/anime-type.component';
 import { BannerComponent } from './banner/banner.component';
 import { MatCarouselModule } from '@ngbmodule/material-carousel';
 import { LoginComponent } from './views/login/login.component';
@@ -35,7 +35,6 @@ import { LoginComponent } from './views/login/login.component';
     HomeComponent,
     AnimesComponent,
     DetailsComponent,
-    CustomGridComponent,
     AnimeTypeComponent,
     BannerComponent,
     LoginComponent,
