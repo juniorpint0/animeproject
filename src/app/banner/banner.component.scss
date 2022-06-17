@@ -1,0 +1,35 @@
+.container {
+    display: block;
+    margin-bottom: 50px;
+}
+@media screen and (max-width: 800px) {
+    .container {
+        display: none;
+    }
+}
+.banner {
+    display: block;
+    width: 100%;
+    height: 800px;
+    background-size: cover;
+    position: -15px;
+    background-repeat: no-repeat;
+}
+
+.click {
+    width: 100%;
+    height: 100%;
+}
+
+.click a {
+    display: flex;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    font-size: 1.8rem;
+    margin-top: -2.3rem;
+}
