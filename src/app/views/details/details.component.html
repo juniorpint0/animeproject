@@ -1,0 +1,44 @@
+<div class="banner" *ngIf="attributes">
+  <img class="img-large" src="{{ attributes?.coverImage?.large }}" />
+  <img class="img-original" src="{{ attributes?.coverImage?.original }}" />
+</div>
+<div class="container" *ngIf="attributes">
+  <div class="col">
+    <div>
+      <img src="{{ attributes?.posterImage?.small }}" />
+    </div>
+    <div class="btn-group">
+      <button mat-raised-button color="primary">Completed</button>
+      <button mat-raised-button color="accent">Watching</button>
+      <button mat-raised-button color="warn">Wishlist</button>
+    </div>
+  </div>
+
+  <div class="col col2">
+    <div class="principal">
+      <mat-card-title class="title">{{
+        attributes.canonicalTitle
+      }}</mat-card-title>
+      <mat-card-title class="date">{{
+        attributes.startDate?.slice(0, 4)
+      }}</mat-card-title>
+    </div>
+    <div class="rating">{{ attributes.averageRating }}% community rating</div>
+    <div class="synopsis">{{ attributes.synopsis }}</div>
+  </div>
+
+  <div class="col col3">
+    <div class="details">
+      <div class="det"><strong>Details: </strong></div>
+      <div class="details2">
+        <li>
+          <strong>Original title: </strong> {{ attributes.canonicalTitle }}
+        </li>
+        <li><strong>Episodes: </strong> {{ attributes.episodeCount }}</li>
+        <li><strong>Start date: </strong>{{ attributes.startDate }}</li>
+        <li><strong>End date: </strong> {{ attributes.endDate }}</li>
+        <li><strong>Status: </strong>{{ attributes.status }}</li>
+      </div>
+    </div>
+  </div>
+</div>
