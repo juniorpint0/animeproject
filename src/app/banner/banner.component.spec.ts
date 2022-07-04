@@ -9,9 +9,9 @@ describe('BannerComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BannerComponent ]
-    })
-    .compileComponents();
+      imports: [HttpClientTestingModule, RouterTestingModule],
+      declarations: [BannerComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
