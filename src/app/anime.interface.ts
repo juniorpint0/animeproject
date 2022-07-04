@@ -6,8 +6,8 @@ export interface Attributes {
   canonicalTitle: string;
   synopsis: string;
   episodeCount: number;
-  startDate: Date;
-  endDate: Date;
+  // startDate: Date;
+  // endDate: Date;
   posterImage: PosterImage;
 }
 

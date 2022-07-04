@@ -11,13 +11,20 @@ import { DataService } from 'src/app/data.service';
 export class AnimesComponent implements OnInit {
   @Input() list: Anime[] = [];
   @Input() titulo = '';
+  testeAnime: any;
 
   constructor(private router: Router, private dataService: DataService) {}
 
   ngOnInit(): void {}
 
-  goToDetalhesByService(anime: Anime) {
+  goToDetalhesByService(anime: any) {
     this.dataService.setAnime(anime);
+    this.testeAnime = anime;
+
+    console.log('Anime', anime);
     this.router.navigateByUrl('/details/edit/' + anime.id);
+  }
+  chamada(value: any): void {
+    console.log('Valor:', value);
   }
 }

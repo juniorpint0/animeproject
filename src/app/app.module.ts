@@ -26,6 +26,7 @@ import { AnimeTypeComponent } from './views/anime-type/anime-type.component';
 import { BannerComponent } from './banner/banner.component';
 import { MatCarouselModule } from '@ngbmodule/material-carousel';
 import { LoginComponent } from './views/login/login.component';
+import { SearchComponent } from './views/search/search.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { LoginComponent } from './views/login/login.component';
     AnimeTypeComponent,
     BannerComponent,
     LoginComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
