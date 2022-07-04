@@ -6,6 +6,7 @@ import { DetailsComponent } from './views/details/details.component';
 import { AnimesComponent } from './views/animes/animes.component';
 import { AnimeTypeComponent } from './views/anime-type/anime-type.component';
 import { LoginComponent } from './views/login/login.component';
+import { SearchComponent } from './views/search/search.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: 'animes',
     component: AnimesComponent,
+  },
+  {
+    path: 'anime/:value',
+    component: SearchComponent,
   },
   {
     path: 'details/edit/:id',
