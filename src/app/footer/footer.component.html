@@ -1,6 +1,6 @@
 <mat-toolbar class="footer" color="primary">
   <mat-nav-list class="footer-nav-list">
-    <a mat-list-item class="footer-logo" routerLink="/">
+    <a mat-list-item class="logo footer-logo" (click)="openSection()">
       <i class="material-icons"> home </i>
     </a>
     <a class="footer-search-box">
@@ -12,7 +12,8 @@
         #mySelect
         placeholder="Ex. Naruto"
         [value]="value"
-        (change)="searchanime(mySelect.value)"
+        (change)="searchAnime(mySelect.value)"
+        id="search"
       />
     </a>
     <a mat-list-item routerLink="/login">
@@ -27,12 +28,13 @@
     <a mat-list-item (click)="getAnimeType('upcoming')">
       <i class="material-icons"> bolt </i>
     </a>
-    <a mat-list-item class="theme2-bt">
+    <a mat-list-item  class="feedback theme2-bt">
       <input
         type="checkbox"
         id="toggle2"
         [(ngModel)]="checked"
         (change)="feedback()"
+        
       />
       <label for="toggle2" class="button2"></label>
     </a>

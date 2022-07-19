@@ -30,40 +30,16 @@ export class FooterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  openSection(section: string) {
-    this.router.navigate(['/', section]);
+  openSection() {
+    this.router.navigate(['/']);
   }
 
-  checar(value: any) {
-    this.api.getAnimeByTitle(value).subscribe((response: any) => {
-      this.search = response.data;
-      this.router.navigateByUrl('/custom', {
-        state: { title: `Showing results for ${value}`, data: this.search },
-      });
-      value = '';
-    });
+  searchAnime(value: any) {
+    this.router.navigateByUrl('/anime/' + value);
   }
-  searchanime(value: any) {
-    this.api.getAnimeByTitle(value).subscribe((response: any) => {
-      this.search = response.data;
-      this.titulo = value;
-      this.router.navigateByUrl('/anime/' + value, {
-        state: { title: `Showing results for ${value}`, data: this.search },
-      });
-    });
-  }
-  getAnimeHighrating() {
-    this.api.getHighrating().subscribe((response: any) => {
-      this.highrating = response.data;
-      this.router.navigateByUrl('/custom', {
-        state: this.highrating,
-      });
-    });
-  }
+ 
   getAnimeType(value: string) {
-    this.router.navigateByUrl('/animetype/' + value, {
-      state: { title: 'Popular now', data: this.dataType },
-    });
+    this.router.navigateByUrl('/animetype/' + value);
   }
   feedback() {
     this.feedbackclick.emit();

@@ -10,16 +10,16 @@ export class HomeComponent implements OnInit {
   popular: any;
   highrating: any;
   upcoming: any;
-  constructor(private api: ApiService) {}
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.api.getPopular().subscribe((response: any) => {
+    this.apiService.getPopular().subscribe((response: any) => {
       this.popular = response.data;
     });
-    this.api.getHighrating().subscribe((response: any) => {
+    this.apiService.getHighrating().subscribe((response: any) => {
       this.highrating = response.data;
     });
-    this.api.getUpcoming().subscribe((response: any) => {
+    this.apiService.getUpcoming().subscribe((response: any) => {
       this.upcoming = response.data;
     });
   }
