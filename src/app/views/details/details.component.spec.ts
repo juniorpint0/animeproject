@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { async, Observable, of } from 'rxjs';
 import { ApiService } from 'src/app/api.service';
+import { AppModule } from 'src/app/app.module';
 
 import { DetailsComponent } from './details.component';
 
@@ -18,30 +19,29 @@ describe('DetailsComponent', () => {
   let httpClient: HttpClient;
 
   let mockApiService: jasmine.SpyObj<ApiService>;
-
+  
 
   beforeEach(async () => {
-  
-    
     await TestBed.configureTestingModule({
       declarations: [DetailsComponent],
       imports: [
         HttpClientTestingModule,
         RouterTestingModule,
         BrowserAnimationsModule,
+        AppModule,
       ],
       providers: [
-        {
-          provide: ApiService,
-          useValue: {
-            getAnimeById: () =>
-              of({
-                data: {
-                  attributes: 'One Punch Man',
-                },
-              }),
-          },
-        },
+        // {
+        //   provide: ApiService,
+        //   useValue: {
+        //     getAnimeById: () =>
+        //       of({
+        //         data: {
+        //           attributes: 'One Punch Man',
+        //         },
+        //       }),
+        //   },
+        // },
         {
           provide: ActivatedRoute,
           useValue: { snapshot: { params: { id: '10740' } } },
@@ -96,14 +96,15 @@ describe('DetailsComponent', () => {
 
 
   it("should return ApiService from getAnimeById as 'One Punch Man'", () => {
-    component.idAnime = '10740';
-    // let service = fixture.debugElement.injector.get(ApiService);
-    // spyOn(apiService, 'getAnimeById').and.returnValue(
-    //   of({})
-
-    // );
-    // mockApiService.getAnimeById.and.returnValue(component.idAnime);
-    console.log('Entrou', component.attributes);
+    // fixture.debugElement.injector.get(ApiService);
+    spyOn(apiService, 'getAnimeById').and.returnValue(
+      of({
+        data: {
+          attributes: 'One Punch Man',
+        },
+      })
+    );
+    component.ngOnInit();
     expect(component.attributes).toBe('One Punch Man');
   });
 });
