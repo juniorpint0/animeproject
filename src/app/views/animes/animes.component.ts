@@ -21,10 +21,7 @@ export class AnimesComponent implements OnInit {
     this.dataService.setAnime(anime);
     this.testeAnime = anime;
 
-    console.log('Anime', anime);
     this.router.navigateByUrl('/details/edit/' + anime.id);
   }
-  chamada(value: any): void {
-    console.log('Valor:', value);
-  }
+  
 }

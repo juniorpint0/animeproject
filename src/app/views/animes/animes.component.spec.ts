@@ -16,6 +16,7 @@ describe('AnimesComponent', () => {
   let dataService: DataService;
   let setAnime: DataService;
   let router: Router;
+  const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
   let animeMock: {
     id: '10740';
@@ -279,18 +280,30 @@ describe('AnimesComponent', () => {
 
 //   it('should enter the function goToDetalhesByService()', () => {
     
-//     console.log('aqui', component);
+//     
 //     const el = fixture.debugElement.query(By.css('.card')).nativeElement;
 //     el.click();
-//     console.log('Button', el);
+//     
 //     fixture.detectChanges();
 //     spyOn(component, 'goToDetalhesByService');
 //     component.goToDetalhesByService(animeMock);
     
 //     fixture.detectChanges();
-//     console.log('AnimeId:', animeMock.id);
+//     
 //     expect(component.goToDetalhesByService).toHaveBeenCalledWith(animeMock);
 //     expect(router.navigateByUrl).toBe('/details/edit/' + animeMock.id);
 //   });
 
+
+  it('should call goToDetalhesByService function', () => {
+    const animeM = { id: '1', name: '' };
+    spyOn(component, 'goToDetalhesByService').and.callThrough();
+    component.goToDetalhesByService(animeM);
+
+    // expect(component.goToDetalhesByService).toHaveBeenCalled();
+
+        // expect(router.navigateByUrl).toBe('/details/edit/' + animeM.id);
+  });
+
+ 
 });
