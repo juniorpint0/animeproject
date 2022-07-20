@@ -44,7 +44,7 @@ export class AnimeTypeComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  goToDetalhesByService(anime: Anime) {
+  goToDetailsByService(anime: Anime) {
     this.dataService.setAnime(anime);
     this.router.navigateByUrl('/details/edit/' + anime.id);
   }

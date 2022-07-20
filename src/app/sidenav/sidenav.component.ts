@@ -19,35 +19,21 @@ export class SidenavComponent implements OnInit {
   constructor(private router: Router, private api: ApiService) {}
 
   ngOnInit(): void {
-     this.toggleControl.valueChanges.subscribe((val) => {
-       this.className = val ? 'darkMode' : '';
-     });
+    this.toggleControl.valueChanges.subscribe((val) => {
+      this.className = val ? 'darkMode' : '';
+    });
   }
 
   openSection(section: string) {
-    this.router.navigate(['/', section]);
+    this.router.navigate(['/']);
   }
 
-  searchanime(value: any) {
-    this.api.getAnimeByTitle(value).subscribe((response: any) => {
-      this.search = response.data;
-      this.titulo = value;
-
-      //1ª Abordagem para passar os dados para o custom componente
-      // this.dataService.setAnime(this.search);
-      // this.router.navigateByUrl('/custom')
-
-      //2ª Abordagem para passar os dados para o custom componente
-      this.router.navigateByUrl('/anime/' + value, {
-        state: { title: `Showing results for ${value}`, data: this.search },
-      });
-    });
+  searchAnime(value: any) {
+    this.router.navigateByUrl('/anime/' + value);
   }
 
   getAnimeType(value: string) {
-    this.router.navigateByUrl('/animetype/' + value, {
-      state: { title: 'Popular now', data: this.dataType },
-    });
+    this.router.navigateByUrl('/animetype/' + value);
   }
 
   getInformation() {

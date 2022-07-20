@@ -13,7 +13,7 @@ export class BannerComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  goToDetalhesByService(anime: Anime) {
+  goToDetailsByService(anime: any) {
     this.dataService.setAnime(anime);
     this.router.navigateByUrl('/details/edit/' + anime.id);
   }

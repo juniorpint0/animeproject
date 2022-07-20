@@ -9,7 +9,8 @@
   >
     <mat-toolbar class="toolbar" color="primary">
       <mat-nav-list class="nav-list">
-        <a mat-list-item class="logo mat-elevation-z3" routerLink="/">
+        <!-- <a mat-list-item class="logo mat-elevation-z3" routerLink="/"> -->
+        <a mat-list-item class="logo mat-elevation-z3" (click)="openSection('')">
           <i class="material-icons"> home </i>
 
           <a>Anime Project</a>
@@ -17,11 +18,13 @@
         <a mat-list-item class="search-box">
           <i class="material-icons"> search </i>
           <input
+            
             matInput
             #mySelect
             placeholder="Ex. Naruto"
             [value]=""
-            (change)="searchanime(mySelect.value)"
+            (change)="searchAnime(mySelect.value)"
+            id="search"
           />
         </a>
 
@@ -47,6 +50,7 @@
             id="toggle"
             [(ngModel)]="checked"
             [formControl]="toggleControl"
+            class="toggle"
           />
           <label for="toggle" class="button"></label>
         </div>
