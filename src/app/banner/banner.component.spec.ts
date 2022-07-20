@@ -15,9 +15,7 @@ describe('BannerComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule, AppModule],
-       providers: [
-        
-       ],
+      providers: [],
       declarations: [BannerComponent],
     }).compileComponents();
   });
@@ -32,11 +30,11 @@ describe('BannerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should call goToDetalhesByService function', () => {
+  it('should call goToDetailsByService function', () => {
     const anime = { id: '1', name: '' };
-    spyOn(component, 'goToDetalhesByService').and.callThrough();
-    component.goToDetalhesByService(anime);
+    spyOn(component, 'goToDetailsByService').and.callThrough();
+    component.goToDetailsByService(anime);
 
-    expect(component.goToDetalhesByService).toHaveBeenCalled();
+    expect(component.goToDetailsByService).toHaveBeenCalled();
   });
 });
