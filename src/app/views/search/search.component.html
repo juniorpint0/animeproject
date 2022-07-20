@@ -1,13 +1,13 @@
 <mat-card-title class="card-title"
-  >{{ titulo }}
-  <mat-card-subtitle *ngIf="hasData<=0">{{ subtitle }}</mat-card-subtitle>
+  >{{ title }}
+  <mat-card-subtitle *ngIf="hasData <= 0">{{ subtitle }}</mat-card-subtitle>
 </mat-card-title>
 
 <div class="cards-animes">
   <div
     *ngFor="let anime of hasData"
     class="card"
-    (click)="goToDetalhesByService(anime)"
+    (click)="goToDetailsByService(anime)"
   >
     <img
       [src]="anime.attributes.posterImage.small"

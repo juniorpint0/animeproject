@@ -1,12 +1,12 @@
 <div>
   <mat-carousel class="container" [hideArrows]="false" [hideIndicators]="false">
     <mat-carousel-slide
-      (click)="goToDetalhesByService(anime)"
+      (click)="goToDetailsByService(anime)"
       *ngFor="let anime of list"
       class="card"
       image="{{ anime.attributes?.coverImage?.original }}"
     >
-      <div class="click" (click)="goToDetalhesByService(anime)">
+      <div class="click" (click)="goToDetailsByService(anime)">
         <a>
           {{ anime.attributes.canonicalTitle }}
         </a>

@@ -12,9 +12,7 @@ describe('SidenavComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule, AppModule],
-      providers: [
-        
-      ],
+      providers: [],
       declarations: [SidenavComponent],
     }).compileComponents();
   });
@@ -36,18 +34,6 @@ describe('SidenavComponent', () => {
     fixture.detectChanges();
     expect(spy).toHaveBeenCalled();
   });
-
-  // it('should look for answers for the result "naruto"', () => {
-  //   const spy = spyOn(component, 'openSection').and.callThrough();
-  //   const el = fixture.debugElement.query(By.css('#search')).nativeElement;
-    
-  //   el.value = 'naruto';
-    
-  //   fixture.detectChanges();
-  //   console.log('Aqui222:', el.value);
-  //   expect(component.openSection).toHaveBeenCalled();
-  // });
-
   it('should look for answers for the result "naruto"', () => {
     spyOn(component, 'searchAnime').and.callThrough();
     let input = fixture.debugElement.query(By.css('#search'));
@@ -65,16 +51,6 @@ describe('SidenavComponent', () => {
 
     expect(component.getAnimeType).toHaveBeenCalled();
   });
-
-  // it('rota 22', () => {
-  //   const spy = spyOn(component['router'], 'navigateByUrl').and.returnValue(
-  //     of({'/animetype/popular'})
-  //   );
-  //   component.getAnimeType('popular');
-
-  //   expect(spy).toHaveBeenCalledWith('/animetype/popular');    
-  // });
-
   it('should use getInformation function to change checked variable', () => {
     component.getInformation();
 

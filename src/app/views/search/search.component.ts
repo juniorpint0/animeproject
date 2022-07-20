@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Anime } from 'src/app/anime.interface';
 import { ApiService } from 'src/app/api.service';
 import { DataService } from 'src/app/data.service';
 
@@ -10,9 +9,9 @@ import { DataService } from 'src/app/data.service';
   styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent implements OnInit {
-  @Input() titulo: string = '';
+  @Input() title: string = '';
   @Input() subtitle: string = 'No results were found';
-  selection = 'get' + this.titulo;
+  selection = 'get' + this.title;
   @Input() hasData: any;
   @Input() snapSearch: any;
 
@@ -21,16 +20,14 @@ export class SearchComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private dataService: DataService
-  ) {
-    // Espera um evento por Observable, para atualizar os dados da form
-    route.params.subscribe((val) => {
-      // 2ª abordagem para receber os dados do sidenav, colocada dentro do constructor
-      let returnData = this.router.getCurrentNavigation()?.extras.state;
-      this.hasData = returnData?.['data'];
-      this.titulo = returnData?.['title'];
-      if (this.hasData == undefined) {
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe((val) => {
+      const returnData = this.router.getCurrentNavigation()?.extras.state;
+      if (returnData == undefined) {
         this.snapSearch = this.route.snapshot.params['value'];
-        this.titulo = `Showing results for ${this.snapSearch}`;
+        this.title = `Showing results for ${this.snapSearch}`;
         this.apiService
           .getAnimeByTitle(this.snapSearch)
           .subscribe((res) => (this.hasData = res.data));
@@ -38,19 +35,8 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    //1ª abordagem para receber os dados do sidenav
-    // this.hasData = this.dataService.getAnime()
-  }
-  goToDetalhesByService(anime: Anime) {
+  goToDetailsByService(anime: any) {
     this.dataService.setAnime(anime);
     this.router.navigateByUrl('/details/edit/' + anime.id);
-  }
-
-  load(): void {
-    //Session storage salva os dados como string
-    (sessionStorage['refresh'] == 'true' || !sessionStorage['refresh']) &&
-      location.reload();
-    sessionStorage['refresh'] = false;
   }
 }
