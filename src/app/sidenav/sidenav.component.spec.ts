@@ -5,6 +5,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { SidenavComponent } from './sidenav.component';
 import { AppModule } from '../app.module';
+import { FormControl } from '@angular/forms';
+import { of } from 'rxjs';
 describe('SidenavComponent', () => {
   let component: SidenavComponent;
   let fixture: ComponentFixture<SidenavComponent>;
@@ -12,7 +14,12 @@ describe('SidenavComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HttpClientTestingModule, RouterTestingModule, AppModule],
-      providers: [],
+      providers: [
+        {
+          provide: FormControl,
+          useValue: { valueChanges: of('false') },
+        },
+      ],
       declarations: [SidenavComponent],
     }).compileComponents();
   });

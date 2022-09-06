@@ -10,7 +10,7 @@ export class LoginComponent implements OnInit {
   msgemail = '';
   msgpass = '';
   form: any = {
-    username: null,
+    email: null,
     password: null,
   };
 
@@ -18,10 +18,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
   onSubmit(): void {
-    const { username, password } = this.form;
+    const { email, password } = this.form;
 
     if (
-      username != '' &&
+      email != '' &&
       password != '' &&
       this.msgemail == '' &&
       this.msgpass == ''
@@ -30,9 +30,9 @@ export class LoginComponent implements OnInit {
     }
   }
   validationEmail() {
-    const { username } = this.form;
-    let user = username.substring(0, username.indexOf('@'));
-    let domain = username.substring(username.indexOf('@') + 1, username.length);
+    const { email } = this.form;
+    let user = email.substring(0, email.indexOf('@'));
+    let domain = email.substring(email.indexOf('@') + 1, email.length);
 
     if (
       user.length >= 1 &&
@@ -52,11 +52,7 @@ export class LoginComponent implements OnInit {
   }
   validationPassword() {
     const { password } = this.form;
-    if (
-      password.length >= 1 &&
-      password.search(' ') == -1 &&
-      password.search(' ') == -1
-    ) {
+    if (password.length >= 1 && password.search(' ') == -1) {
       this.msgpass = '';
     } else {
       this.msgpass = 'Invalid password';

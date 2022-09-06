@@ -17,32 +17,33 @@ export class AnimeTypeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private api: ApiService,
+    private apiService: ApiService,
     private router: Router,
     private dataService: DataService
-  ) {
-    route.params.subscribe((val) => {
-      this.snapSearch = this.route.snapshot.params['value'];
+  ) {}
+
+  ngOnInit(): void {
+    this.route.params.subscribe((val) => {
+      this.snapSearch = val;
+      this.snapSearch = this.snapSearch.value;
       if (this.snapSearch == 'popular') {
-        this.api.getPopular().subscribe((response: any) => {
+        this.apiService.getPopular().subscribe((response: any) => {
           this.hasData = response.data;
           this.title = 'Popular now';
         });
       } else if (this.snapSearch == 'highrating') {
-        this.api.getHighrating().subscribe((response: any) => {
+        this.apiService.getHighrating().subscribe((response: any) => {
           this.hasData = response.data;
           this.title = 'High Rating';
         });
       } else if (this.snapSearch == 'upcoming') {
-        this.api.getUpcoming().subscribe((response: any) => {
+        this.apiService.getUpcoming().subscribe((response: any) => {
           this.hasData = response.data;
           this.title = 'Up Coming';
         });
       }
     });
   }
-
-  ngOnInit(): void {}
 
   goToDetailsByService(anime: Anime) {
     this.dataService.setAnime(anime);
