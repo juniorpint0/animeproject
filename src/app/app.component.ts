@@ -11,10 +11,4 @@ export class AppComponent {
   toggleControl = new FormControl(false);
 
   constructor() {}
-
-  ngOnInit(): void {
-    this.toggleControl.valueChanges.subscribe((val) => {
-      this.className = val ? 'darkMode' : 'lightMode';
-    });
-  }
 }
