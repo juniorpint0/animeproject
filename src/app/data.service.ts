@@ -5,12 +5,12 @@ import { Anime } from 'src/app/anime.interface';
   providedIn: 'root',
 })
 export class DataService {
-  private anime: Anime | undefined;
+  private anime: any | undefined;
   private title: string = '';
 
   constructor() {}
 
-  setAnime(anime: Anime) {
+  setAnime(anime: any) {
     this.anime = anime;
   }
   getAnime() {
