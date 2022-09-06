@@ -3,14 +3,15 @@
     <div class="box">
       <span class="logo">Anime Project</span>
       <input
-        #username="ngModel"
-        name="username"
-        [(ngModel)]="form.username"
+        #email="ngModel"
+        name="email"
+        [(ngModel)]="form.email"
         type="email"
-        title="username"
+        title="email"
         placeholder="Enter your e-mail address"
         class="input"
         (change)="validationEmail()"
+        id="inputemail"
       />
       <div class="msgerr">{{ msgemail }}</div>
       <input
@@ -21,6 +22,7 @@
         placeholder="Enter your password"
         class="input"
         (change)="validationPassword()"
+        id="inputpassword"
       />
       <div class="msgerr">{{ msgpass }}</div>
       <div class="forgot">
