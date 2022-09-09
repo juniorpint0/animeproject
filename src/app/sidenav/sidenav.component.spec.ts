@@ -67,7 +67,15 @@ describe('SidenavComponent', () => {
   it('should pass the empty value to the className variable', () => {
     component.checked = true;
     component.getInformation();
-
+    console.log(component.className);
     expect(component.className).toBe('');
+  });
+  
+  it('should pass the darkMode value to the className variable', () => {
+    const spy = spyOn(component, 'openSection').and.callThrough();
+    const el = fixture.debugElement.query(By.css('.toggle')).nativeElement;
+    el.click();
+
+    expect(component.className).toBe('darkMode');
   });
 });
